@@ -5,7 +5,11 @@ import (
 	"github.com/prakashpandey/gochain/block"
 )
 
+var genesisBlock = block.GenesisBlock()
+var blockchain = block.NewBlockchain(genesisBlock)
+
 func main() {
-	bc := block.NewBlockchain()
-	fmt.Printf("%s\n", bc.String())
+	newBlock := block.NewBlock(genesisBlock)
+	blockchain.Add(newBlock)
+	fmt.Printf("%s\n", blockchain.String())
 }

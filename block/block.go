@@ -29,11 +29,11 @@ func GenesisBlock() *Block {
 	return b
 }
 
-func New(b *Block) *Block {
+func NewBlock(prev *Block) *Block {
 	return &Block{
-		Index:     b.Index + 1,
+		Index:     prev.Index + 1,
 		Timestamp: time.Now().Unix(),
-		PrevHash:  b.CalHash(),
+		PrevHash:  prev.Hash,
 	}
 }
 

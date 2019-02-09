@@ -8,9 +8,9 @@ type Blockchain struct {
 	Blocks []*Block
 }
 
-func NewBlockchain() *Blockchain {
+func NewBlockchain(genesisBlock *Block) *Blockchain {
 	return &Blockchain{
-		Blocks: []*Block{GenesisBlock()},
+		Blocks: []*Block{genesisBlock},
 	}
 }
 
