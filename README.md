@@ -16,4 +16,8 @@ Tinycoin is toy blockchain implementation in Golang
 
 - `make run`
 
+## LICENSE
+
+`GNU General Public License v2.0`, please visit [LICENSE](LICENSE) for more information.
+
 
