@@ -1,4 +1,4 @@
-# GoChain
+# tinycoin-Go
 
 Tinycoin is toy blockchain implementation in Golang
 
