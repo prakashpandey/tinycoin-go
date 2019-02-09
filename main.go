@@ -2,8 +2,12 @@ package main
 
 import (
 	"fmt"
+	"github.com/prakashpandey/gochain/block"
 )
 
 func main() {
-	fmt.Println("Hello go-chain")
+	genesisBlock := block.GenesisBlock()
+	b := block.New(genesisBlock)
+	b.Data = []byte("I am a transaction")
+	fmt.Println(b.String())
 }

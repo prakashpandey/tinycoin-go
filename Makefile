@@ -1,6 +1,6 @@
 GOOS=$(shell go env GOOS)
 GOARCH=$(shell go env GOARCH)
-BINARY_NAME=go-chain-$(GOOS)-$(GOARCH)
+BINARY_NAME=gochain-$(GOOS)-$(GOARCH)
 
 .PHONY: clean
 clean:
