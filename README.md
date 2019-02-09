@@ -12,7 +12,7 @@ Tinycoin is toy blockchain implementation in Golang
 
 - `git clone github.com/prakashpandey/tinycoin-go`
 
-- `cd fake-server`
+- `cd tinycoin-go`
 
 - `make run`
 
