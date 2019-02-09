@@ -13,8 +13,13 @@ var blockchain = block.NewBlockchain(genesisBlock)
 var prevBlock = genesisBlock
 
 func generateNewBlock() {
+	// create new block
 	newBlock := block.NewBlock(prevBlock)
+	newBlock.Hash = newBlock.CalHash()
+
+	// add new block to blockchain
 	blockchain.Add(newBlock)
+
 	prevBlock = newBlock
 }
 
