@@ -6,8 +6,9 @@ import (
 )
 
 type Flags struct {
-	IP   string
-	Port int
+	IP      string
+	Port    int
+	Connect bool
 }
 
 func NewFlags() *Flags {
@@ -17,6 +18,7 @@ func NewFlags() *Flags {
 func (f *Flags) Define() {
 	flag.StringVar(&f.IP, "ip", "localhost", "enter server ip")
 	flag.IntVar(&f.Port, "port", 8181, "enter port")
+	flag.BoolVar(&f.Connect, "connect", false, "connect with server")
 }
 
 func (f *Flags) Parse() {
@@ -24,5 +26,5 @@ func (f *Flags) Parse() {
 }
 
 func (f *Flags) String() string {
-	return fmt.Sprintf("IP[%s], Port[%d]", f.IP, f.Port)
+	return fmt.Sprintf("IP[%s], Port[%d], Connect[%t]", f.IP, f.Port, f.Connect)
 }
