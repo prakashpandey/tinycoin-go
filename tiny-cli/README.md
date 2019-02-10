@@ -18,6 +18,8 @@ tiny-cli is cli for tiny-coin
 
 - `./tiny* -connect -ip=localhost -port=8181`
 
+[Optional] you can export the binary to your path 
+
 ## LICENSE
 
 `GNU General Public License v2.0`, please visit [LICENSE](LICENSE) for more information.
