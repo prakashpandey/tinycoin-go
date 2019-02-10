@@ -18,7 +18,7 @@ tiny-cli is cli for tiny-coin
 
 - `./tiny* -connect -ip=localhost -port=8181`
 
-[Optional] you can export the binary to your path 
+[Optional] you can export the binary to your path. Ex: `export PATH=$PATH:TINY_CLI_BINARY_PATH`
 
 ## LICENSE
 
