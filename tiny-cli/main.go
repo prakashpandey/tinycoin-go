@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/prakashpandey/gochain/tiny-cli/conf"
-	"github.com/prakashpandey/gochain/tiny-cli/server"
+	"github.com/prakashpandey/tinycoin-go/tiny-cli/conf"
+	"github.com/prakashpandey/tinycoin-go/tiny-cli/server"
 )
 
 var flags *conf.Flags
