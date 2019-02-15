@@ -1,2 +1,6 @@
 tinycoin-go-*
 *.swp
+gochain-linux-amd64
+target/*
+tinycoin-linux-amd64
+
