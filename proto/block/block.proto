@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package api;
+
+service BlockService {
+    // Get latest block
+    rpc LatestBlock(Null) returns (Block){}
+}
+
+message Block {
+    int64 index = 1;
+	int64 timestamp = 2;
+	bytes data = 3;
+    bytes  prevHash = 4;
+    bytes hash = 5;
+}
+
+message Null {
+
+}

@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/prakashpandey/tinycoin-go/block"
 	"time"
+
+	"github.com/prakashpandey/tinycoin-go/server/block"
 )
 
 // Initialize a new blockchain by creating a
