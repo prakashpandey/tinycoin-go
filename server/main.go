@@ -1,33 +1,40 @@
 package main
 
 import (
-	"fmt"
-	"time"
+	"context"
+	"log"
+	"net"
 
-	"github.com/prakashpandey/tinycoin-go/server/block"
+	pbBlock "github.com/prakashpandey/tinycoin-go/proto/block"
+	"google.golang.org/grpc"
 )
 
-// Initialize a new blockchain by creating a
-// genesis block
-var genesisBlock = block.GenesisBlock()
-var blockchain = block.NewBlockchain(genesisBlock)
-var prevBlock = genesisBlock
+const (
+	port = ":8182"
+)
 
-func generateNewBlock() {
-	// create new block
-	newBlock := block.NewBlock(prevBlock)
-	newBlock.Hash = newBlock.CalHash()
+type blockHelper struct{}
 
-	// add new block to blockchain
-	blockchain.Add(newBlock)
-
-	prevBlock = newBlock
+// LatestBlock returns latest block of blockchain
+func (s *blockHelper) LatestBlock(c context.Context, null *pbBlock.Null) (*pbBlock.Block, error) {
+	latestBlock := blockchain.GetLastBlock()
+	return &pbBlock.Block{
+		Index:     int64(latestBlock.Index),
+		Timestamp: latestBlock.Timestamp,
+		Data:      latestBlock.Data,
+		PrevHash:  latestBlock.PrevHash,
+		Hash:      latestBlock.Hash,
+	}, nil
 }
 
 func main() {
-	for i := 0; i < 100000; i++ {
-		generateNewBlock()
-		fmt.Printf("%s\n", blockchain.String())
-		time.Sleep(1 * time.Second)
+	lis, err := net.Listen("tcp", port)
+	if err != nil {
+		log.Fatalf("failed to listen: %v", err)
+	}
+	s := grpc.NewServer()
+	pbBlock.RegisterBlockServiceServer(s, &blockHelper{})
+	if err := s.Serve(lis); err != nil {
+		log.Fatalf("failed to serve: %v", err)
 	}
 }
