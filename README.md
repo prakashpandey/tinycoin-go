@@ -18,4 +18,4 @@ Tinycoin is toy blockchain implementation in Golang
 
 ## LICENSE
 
-`GNU General Public License v2.0`, please visit [LICENSE](LICENSE) for more information.
+`GNU General Public License v2.0`, please visit [../LICENSE](LICENSE) for more information.
