@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"log"
 	"strconv"
@@ -25,5 +26,6 @@ func getLatestBlock(ip string, port int) {
 	if err != nil {
 		log.Fatalf("could not get lastest block: %v", err)
 	}
-	fmt.Printf("%s\n", block.String())
+	j, _ := json.MarshalIndent(block, "\t", "")
+	fmt.Printf("%s\n", j)
 }
