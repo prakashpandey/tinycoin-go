@@ -1,6 +1,6 @@
 GOOS=$(shell go env GOOS)
 GOARCH=$(shell go env GOARCH)
-BINARY_BASE_NAME=tinycoin-cli
+BINARY_BASE_NAME=tinycli
 BINARY_NAME=$(BINARY_BASE_NAME)-$(GOOS)-$(GOARCH)
 
 .ONESHELL:
@@ -17,18 +17,15 @@ build:
 
 .PHONY: build-linux
 build-linux:
-	GOOS=linux GOARCH=amd64 go build -o ./target/$(BINARY_BASE_NAME)-$(GOOS)-$(GOARCH)
+	GOOS=linux GOARCH=amd64 go build -o $(BINARY_BASE_NAME)-$(GOOS)-$(GOARCH)
 
 .PHONY: build-darwin
 build-darwin:
-	GOOS=darwin GOARCH=amd64 go build -o ./target/$(BINARY_BASE_NAME)-$(GOOS)-$(GOARCH)
-
+	GOOS=darwin GOARCH=amd64 go build -o $(BINARY_BASE_NAME)-$(GOOS)-$(GOARCH)
 
 .PHONY: build-windows
 build-windows:
-	export GOOS=windows \
-	export GOARCH=amd64 \
-	go build -o ./target/$(BINARY_BASE_NAME)-$(GOOS)-$(GOARCH)
+	GOOS=windows GOARCH=amd64 go build -o $(BINARY_BASE_NAME)-$(GOOS)-$(GOARCH)
 
 
 .PHONY: build-all-platforms
