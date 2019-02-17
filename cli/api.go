@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"strconv"
 	"time"
@@ -12,7 +13,6 @@ import (
 
 func getLatestBlock(ip string, port int) {
 	address := ip + ":" + strconv.Itoa(port)
-	log.Printf("address: %s\n", address)
 	conn, err := grpc.Dial(address, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
@@ -25,5 +25,5 @@ func getLatestBlock(ip string, port int) {
 	if err != nil {
 		log.Fatalf("could not get lastest block: %v", err)
 	}
-	log.Printf("Block: %s", block.String())
+	fmt.Printf("%s\n", block.String())
 }
